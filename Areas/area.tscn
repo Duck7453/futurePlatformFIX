@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://bdgl0bxj0qqbx"]
+[gd_scene load_steps=5 format=3 uid="uid://bdgl0bxj0qqbx"]
 
 [ext_resource type="Texture2D" uid="uid://csi5hafarhkxh" path="res://[FREE] Mine Tileset/FREE/5. Mine Tileset - Starter Pack 32p/Mine_Tileset_1B.png" id="1_abuls"]
+[ext_resource type="PackedScene" uid="uid://0hob6oicueon" path="res://Scenes/player.tscn" id="2_k18f0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k18f0"]
 texture = ExtResource("1_abuls")
@@ -206,3 +207,7 @@ sources/0 = SubResource("TileSetAtlasSource_k18f0")
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_blhc6")
 format = 2
+layer_0/tile_data = PackedInt32Array(65536, 0, 2, 65537, 65536, 2, 65538, 131072, 2, 65539, 196608, 2, 65540, 262144, 2, 65541, 327680, 2, 65542, 0, 2, 65543, 65536, 2, 65544, 131072, 2, 65545, 196608, 2, 65546, 262144, 2, 65547, 327680, 2, 65548, 0, 2, 65549, 65536, 2, 65550, 131072, 2, 65551, 196608, 2, 65552, 262144, 2, 65553, 327680, 2, 65554, 0, 2, 65555, 65536, 2, 65556, 131072, 2, 65557, 196608, 2, 65558, 262144, 2, 65559, 327680, 2)
+
+[node name="Player" parent="." instance=ExtResource("2_k18f0")]
+position = Vector2(68, -22)

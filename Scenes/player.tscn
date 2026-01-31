@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://0hob6oicueon"]
+[gd_scene load_steps=4 format=3 uid="uid://0hob6oicueon"]
 
+[ext_resource type="Script" uid="uid://d3rr8v4iwlixg" path="res://Scripts/player_controller.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://brya5b8qkvh4f" path="res://[FREE] Mine Tileset/FREE/6. Character Animations 32p/Anim_Robot_Walk1_v1.1_spritesheet.png" id="1_v0iea"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cvnsp"]
@@ -7,8 +8,11 @@ radius = 9.0
 height = 26.0
 
 [node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_cvnsp")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(0, -15)
+zoom = Vector2(6, 6)
 
 [node name="PlayerAnimator" type="Node2D" parent="."]
 
