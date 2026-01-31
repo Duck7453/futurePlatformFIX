@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://0hob6oicueon"]
+
+[ext_resource type="Texture2D" uid="uid://brya5b8qkvh4f" path="res://[FREE] Mine Tileset/FREE/6. Character Animations 32p/Anim_Robot_Walk1_v1.1_spritesheet.png" id="1_v0iea"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cvnsp"]
+radius = 9.0
+height = 26.0
+
+[node name="Player" type="CharacterBody2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="PlayerAnimator" type="Node2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PlayerAnimator"]
+
+[node name="Sprite2D" type="Sprite2D" parent="PlayerAnimator"]
+texture = ExtResource("1_v0iea")
+region_enabled = true
+region_rect = Rect2(6, 0, 21, 32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3)
+shape = SubResource("CapsuleShape2D_cvnsp")
