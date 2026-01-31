@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://0hob6oicueon"]
+[gd_scene load_steps=10 format=3 uid="uid://0hob6oicueon"]
 
 [ext_resource type="Script" uid="uid://d3rr8v4iwlixg" path="res://Scripts/player_controller.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://brya5b8qkvh4f" path="res://[FREE] Mine Tileset/FREE/6. Character Animations 32p/Anim_Robot_Walk1_v1.1_spritesheet.png" id="1_v0iea"]
+[ext_resource type="Texture2D" uid="uid://ci2k4bn3nwg8a" path="res://[FREE] Mine Tileset/FREE/6. Character Animations 32p/Anim_Robot_Jump1_v1.1_spritesheet.png" id="3_6t5aa"]
 
 [sub_resource type="Animation" id="Animation_cvnsp"]
 resource_name = "walk"
@@ -11,7 +12,7 @@ step = 0.25
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/path = NodePath("walk:region_rect")
 tracks/0/interp = 0
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -26,7 +27,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/path = NodePath("walk:region_rect")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -35,10 +36,45 @@ tracks/0/keys = {
 "update": 0,
 "values": [Rect2(6, 0, 21, 32)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("idle:region_rect")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(69, 1, 22, 31)]
+}
+
+[sub_resource type="Animation" id="Animation_vgqql"]
+resource_name = "idle"
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("idle:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(69, 1, 22, 31)]
+}
+
+[sub_resource type="Animation" id="Animation_fkybt"]
+resource_name = "jump"
+length = 1.5
+step = 0.25
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vgqql"]
 _data = {
 &"RESET": SubResource("Animation_6t5aa"),
+&"idle": SubResource("Animation_vgqql"),
+&"jump": SubResource("Animation_fkybt"),
 &"walk": SubResource("Animation_cvnsp")
 }
 
@@ -62,10 +98,21 @@ libraries = {
 autoplay = "walk"
 speed_scale = 1.691
 
-[node name="Sprite2D" type="Sprite2D" parent="PlayerAnimator"]
+[node name="walk" type="Sprite2D" parent="PlayerAnimator"]
+visible = false
 texture = ExtResource("1_v0iea")
 region_enabled = true
 region_rect = Rect2(6, 0, 21, 32)
+
+[node name="idle" type="Sprite2D" parent="PlayerAnimator"]
+visible = false
+texture = ExtResource("1_v0iea")
+region_enabled = true
+region_rect = Rect2(69, 1, 22, 31)
+
+[node name="jump" type="Sprite2D" parent="PlayerAnimator"]
+texture = ExtResource("3_6t5aa")
+region_enabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 3)
